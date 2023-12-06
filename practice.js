@@ -218,10 +218,15 @@ const evens = (array) =>{
 // Make sure to use an arrow function combined with the filter method (not a for loop).
 
 function startWithLetterA(array){
-  array.filter((element, index, array) =>{
-    if (let i )
+  let foundA 
+  array.filter((element) =>{
+    for (let i = 0; i < element.length; i++){
+      if (element[i] === 'a' || element[i] === 'A'){
+        foundA = [element[i]]  
+      }
+    } return foundA
 
-  })
+  }) 
 
 }
 
@@ -233,8 +238,12 @@ function startWithLetterA(array){
 // appended to the beginning of each name.
 //
 // Make sure to use arrow functions combined with the map method.
-
-// REPLACE THIS WITH YOUR CODE
+const newArr = (`Hello, ${names}`)
+const formalGreeting = (names) => {
+  let helloGreeting = names.map(newArr)
+    return helloGreeting
+    
+}
 
 /// /////// PROBLEM 10 //////////
 
@@ -243,9 +252,12 @@ function startWithLetterA(array){
 
 // Remember that by default, JavaScript sorts by converting all items to strings. So you
 // will need to provide a compare function.
+function compareFn(a, b) {
+  return a - b}
+const sortNumbers = (nums, returns) => {
+ return (nums.sort(compareFn))
 
-// REPLACE THIS WITH YOUR CODE
-
+}
 /// /////// PROBLEM 11 //////////
 
 // Create a function called findProgrammer that uses the filter method to
@@ -264,7 +276,15 @@ const employees = [
 ];
 // Do not edit the code above.
 
-// REPLACE THIS WITH YOUR CODE
+const findProgrammer = employees.filter((object) => {
+   if (object === 'programmer'){
+    object[0] + object[1] === findProgrammer
+   }
+})
+
+
+
+
 
 ////////// PROBLEM 12 //////////
 
@@ -293,7 +313,7 @@ const orders = [
 
 let orderTotals; // Code here
 
-/// /////// PROBLEM 13 //////////
+/// /////// PROBLEM 13 //////////    JARED CHECK!!!!!!!!!!
 
 // Do not edit code below.
 const exampleMenuItems = [
@@ -307,8 +327,8 @@ const exampleMenuItems = [
 // Create a function called sortMenuItems which takes in an array of objects like the one above
 // and sorts the array by price from smallest to largest. It should return the sorted array.
 
-// REPLACE THIS WITH YOUR CODE
-
+let sortMenuItems = exampleMenuItems.sort((menu1, menu2 ) => menu1.price - menu2.price);
+console.log(sortMenuItems)
 /// /////// PROBLEM 14 //////////
 
 // Create a function called productOfArray which takes in an array of numbers. It should
@@ -317,4 +337,9 @@ const exampleMenuItems = [
 //
 // Make sure to use arrow functions combined with the reduce method.
 
-// REPLACE THIS WITH YOUR CODE
+function productOfArray(numbers) {
+  let reduceArray = numbers.reduce((accumulator, current, index, array) => {
+    return accumulator + current
+})
+console.log(reduceArray)
+}
