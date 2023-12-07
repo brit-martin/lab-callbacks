@@ -217,17 +217,11 @@ const evens = (array) =>{
 //
 // Make sure to use an arrow function combined with the filter method (not a for loop).
 
-function startWithLetterA(array){
-  let foundA 
-  array.filter((element) =>{
-    for (let i = 0; i < element.length; i++){
-      if (element[i] === 'a' || element[i] === 'A'){
-        foundA = [element[i]]  
-      }
-    } return foundA
-
-  }) 
-
+function startWithLetterA (array){
+  let newArr = array.filter((e, i, a) => {
+    return e[0] === "A" || e[0] === "a"
+  })
+    return newArr
 }
 
 
@@ -238,11 +232,13 @@ function startWithLetterA(array){
 // appended to the beginning of each name.
 //
 // Make sure to use arrow functions combined with the map method.
-const newArr = (`Hello, ${names}`)
-const formalGreeting = (names) => {
-  let helloGreeting = names.map(newArr)
-    return helloGreeting
-    
+ 
+function formalGreeting (names){
+  let newArr = names.map((e,i,a) => {
+    return `Hello, ${e}`
+
+  })
+    return newArr
 }
 
 /// /////// PROBLEM 10 //////////
@@ -276,12 +272,14 @@ const employees = [
 ];
 // Do not edit the code above.
 
-const findProgrammer = employees.filter((object) => {
-   if (object === 'programmer'){
-    object[0] + object[1] === findProgrammer
-   }
-})
 
+function findProgrammer (employees){
+  let newArray = employees.filter((element, index, array)=>{
+      return element.job === 'programmer'
+  })
+    return newArray[0]
+}
+findProgrammer(employees)
 
 
 
@@ -311,9 +309,13 @@ const orders = [
   Example: if tax is 0.07, the price afterTax could be calculated like this: afterTax = price * 1.07)
 */
 
-let orderTotals; // Code here
+let orderTotals = orders.map((element, index, array) => {
+  return element.price * (1 + element.tax)
 
-/// /////// PROBLEM 13 //////////    JARED CHECK!!!!!!!!!!
+})
+
+
+/// /////// PROBLEM 13 //////////    
 
 // Do not edit code below.
 const exampleMenuItems = [
@@ -327,8 +329,14 @@ const exampleMenuItems = [
 // Create a function called sortMenuItems which takes in an array of objects like the one above
 // and sorts the array by price from smallest to largest. It should return the sorted array.
 
-let sortMenuItems = exampleMenuItems.sort((menu1, menu2 ) => menu1.price - menu2.price);
-console.log(sortMenuItems)
+function sortMenuItems (objects){
+    return objects.sort((a, b)=>{
+      a.price - b.price
+    })
+
+}
+sortMenuItems(objects)
+
 /// /////// PROBLEM 14 //////////
 
 // Create a function called productOfArray which takes in an array of numbers. It should
@@ -338,8 +346,8 @@ console.log(sortMenuItems)
 // Make sure to use arrow functions combined with the reduce method.
 
 function productOfArray(numbers) {
-  let reduceArray = numbers.reduce((accumulator, current, index, array) => {
+  numbers.reduce((accumulator, current, index, array) => {
     return accumulator + current
 })
-console.log(reduceArray)
-}
+} 
+productOfArray(numbers)
