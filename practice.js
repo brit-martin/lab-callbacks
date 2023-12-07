@@ -331,11 +331,11 @@ const exampleMenuItems = [
 
 function sortMenuItems (objects){
     return objects.sort((a, b)=>{
-      a.price - b.price
+     return a.price - b.price
     })
+    
+} 
 
-}
-sortMenuItems(objects)
 
 /// /////// PROBLEM 14 //////////
 
@@ -346,8 +346,13 @@ sortMenuItems(objects)
 // Make sure to use arrow functions combined with the reduce method.
 
 function productOfArray(numbers) {
-  numbers.reduce((accumulator, current, index, array) => {
-    return accumulator + current
+  return numbers.reduce((accumulator, current, index, array) => {
+    return accumulator * current
 })
 } 
-productOfArray(numbers)
+//function productOfArray(numbers){
+//   const answer = numbers.reduce((accumulator, current) => {
+//     return accumulator * current
+//   })
+//   return answer
+// }
